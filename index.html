@@ -588,15 +588,15 @@
     <nav>
         <div class="logo">MOTOR HUT</div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="#inventory">Inventory</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="nav-contact">
             <span class="contact-item">📍 Argwings Kodhek Rd, Nairobi</span>
-            <span class="contact-item">📞 +254 72 383 8787</span>
+            <span class="contact-item">📞 +254 72 363 6787</span>
         </div>
     </nav>
 
@@ -611,7 +611,7 @@
             </p>
             <div class="hero-buttons">
                 <a href="#inventory" class="btn-primary">Explore Inventory</a>
-                <a href="#contact" class="btn-secondary">Schedule Visit</a>
+                <a href="contact.html" class="btn-secondary">Schedule Visit</a>
             </div>
         </div>
         <div class="hero-image">
@@ -698,7 +698,8 @@
         // Supabase Configuration
         const SUPABASE_URL = 'https://fappwzziqocmwqohyokl.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhcHB3enppcW9jbXdxb2h5b2tsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk4MjQ5ODgsImV4cCI6MjA4NTQwMDk4OH0.LM857N5L_7YiaVdjlswVZFV53tcy2NZaYv2ccQwAt3o';
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        const { createClient } = supabase;
+        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
 
         // Hugging Face Configuration
         const HF_API_KEY = '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';
@@ -707,7 +708,7 @@
         document.addEventListener('DOMContentLoaded', loadCars);
 
         async function loadCars() {
-            const { data: cars, error } = await supabase
+            const { data: cars, error } = await supabaseClient
                 .from('cars')
                 .select('*')
                 .eq('status', 'available')
