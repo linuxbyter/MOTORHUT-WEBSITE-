@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Hut - Premium Automotive Excellence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A1929;
+            --navy-light: #132F4C;
+            --navy-lighter: #1E4976;
+            --gold: #D4AF37;
+            --gold-dark: #B8941F;
+            --white: #FFFFFF;
+            --off-white: #F5F5F5;
+            --gray: #8899A8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--navy);
+            color: var(--off-white);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 25, 41, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--gold) 0%, #E8D4A0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--off-white);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-contact {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .contact-item {
+            color: var(--gray);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -10%;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            color: var(--gold);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--gold) 0%, #E8D4A0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+
+        .btn-primary {
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--navy);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 1.2rem 3rem;
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.5));
+        }
+
+        /* Search Section */
+        .search-section {
+            padding: 3rem 5%;
+            background: var(--navy-light);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .search-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            align-items: end;
+        }
+
+        .search-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .search-field label {
+            color: var(--gold);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .search-field select,
+        .search-field input {
+            padding: 1rem;
+            background: var(--navy);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 4px;
+            color: var(--off-white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-field select:focus,
+        .search-field input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .btn-search {
+            padding: 1rem 2rem;
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-search:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Featured Cars */
+        .featured-section {
+            padding: 6rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-eyebrow {
+            color: var(--gold);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .car-card {
+            background: var(--navy-light);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .car-image {
+            width: 100%;
+            height: 250px;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .car-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .car-details {
+            padding: 2rem;
+        }
+
+        .car-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .car-price {
+            color: var(--gold);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .car-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .btn-view {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-view:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+        }
+
+        .chat-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .chat-button svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--navy);
+        }
+
+        .chat-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 400px;
+            height: 600px;
+            background: var(--navy-light);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            display: none;
+            flex-direction: column;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chat-window.active {
+            display: flex;
+        }
+
+        .chat-header {
+            padding: 1.5rem;
+            background: var(--navy);
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chat-header h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .chat-input-area {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.75rem;
+            background: var(--navy);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 4px;
+            color: var(--off-white);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .chat-send {
+            padding: 0.75rem 1.5rem;
+            background: var(--gold);
+            border: none;
+            border-radius: 4px;
+            color: var(--navy);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 6rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .cars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chat-window {
+                width: calc(100vw - 40px);
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">MOTOR HUT</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#inventory">Inventory</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-contact">
+            <span class="contact-item">📍 Argwings Kodhek Rd, Nairobi</span>
+            <span class="contact-item">📞 +254 72 383 8787</span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-eyebrow">Premium Automotive Excellence</div>
+            <h1 class="hero-title">Drive Your <span>Dream</span> Today</h1>
+            <p class="hero-description">
+                Discover an exclusive collection of premium vehicles meticulously curated for discerning drivers. 
+                Experience luxury, performance, and unparalleled service.
+            </p>
+            <div class="hero-buttons">
+                <a href="#inventory" class="btn-primary">Explore Inventory</a>
+                <a href="#contact" class="btn-secondary">Schedule Visit</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <svg width="500" height="300" viewBox="0 0 500 300">
+                <rect x="50" y="100" width="400" height="120" rx="10" fill="var(--navy-lighter)" opacity="0.3"/>
+                <rect x="70" y="120" width="360" height="80" rx="5" fill="var(--gold)" opacity="0.1"/>
+                <circle cx="150" cy="220" r="30" fill="var(--navy-lighter)" opacity="0.5"/>
+                <circle cx="350" cy="220" r="30" fill="var(--navy-lighter)" opacity="0.5"/>
+                <text x="250" y="170" text-anchor="middle" fill="var(--gold)" font-size="24" font-family="'Playfair Display', serif">Your Dream Car</text>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <div class="search-field">
+                <label>Make</label>
+                <select id="make">
+                    <option>Any Make</option>
+                    <option>Toyota</option>
+                    <option>Mercedes-Benz</option>
+                    <option>BMW</option>
+                    <option>Audi</option>
+                    <option>Land Rover</option>
+                </select>
+            </div>
+            <div class="search-field">
+                <label>Model</label>
+                <select id="model">
+                    <option>Any Model</option>
+                </select>
+            </div>
+            <div class="search-field">
+                <label>Max Price (KES)</label>
+                <input type="number" placeholder="5,000,000" id="maxPrice">
+            </div>
+            <div class="search-field">
+                <button class="btn-search" onclick="searchCars()">Search Vehicles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Cars -->
+    <section class="featured-section" id="inventory">
+        <div class="section-header">
+            <div class="section-eyebrow">Premium Collection</div>
+            <h2 class="section-title">Featured Vehicles</h2>
+            <p class="section-description">
+                Handpicked selection of exceptional vehicles, each offering uncompromising quality and performance.
+            </p>
+        </div>
+        <div class="cars-grid" id="carsGrid">
+            <!-- Cars will be loaded here -->
+        </div>
+    </section>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-button" onclick="toggleChat()">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+            </svg>
+        </button>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3>AI Assistant</h3>
+                <button class="chat-close" onclick="toggleChat()">×</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div style="color: var(--gray); text-align: center; padding: 2rem;">
+                    Hello! I'm your Motor Hut AI assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Ask about cars, services...">
+                <button class="chat-send" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Supabase Configuration
+        const SUPABASE_URL = 'https://fappwzziqocmwqohyokl.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhcHB3enppcW9jbXdxb2h5b2tsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk4MjQ5ODgsImV4cCI6MjA4NTQwMDk4OH0.LM857N5L_7YiaVdjlswVZFV53tcy2NZaYv2ccQwAt3o';
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        // Hugging Face Configuration
+        const HF_API_KEY = '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';
+
+        // Load cars on page load
+        document.addEventListener('DOMContentLoaded', loadCars);
+
+        async function loadCars() {
+            const { data: cars, error } = await supabase
+                .from('cars')
+                .select('*')
+                .eq('status', 'available')
+                .limit(6);
+
+            if (error) {
+                console.error('Error loading cars:', error);
+                // Show placeholder cars
+                showPlaceholderCars();
+                return;
+            }
+
+            displayCars(cars);
+        }
+
+        function showPlaceholderCars() {
+            const placeholders = [
+                { make: 'Toyota', model: 'Land Cruiser', year: 2023, price: 8500000, mileage: 15000, transmission: 'Automatic', fuel: 'Diesel' },
+                { make: 'Mercedes-Benz', model: 'E-Class', year: 2022, price: 6800000, mileage: 25000, transmission: 'Automatic', fuel: 'Petrol' },
+                { make: 'BMW', model: 'X5', year: 2023, price: 7200000, mileage: 12000, transmission: 'Automatic', fuel: 'Hybrid' },
+            ];
+            displayCars(placeholders);
+        }
+
+        function displayCars(cars) {
+            const grid = document.getElementById('carsGrid');
+            grid.innerHTML = cars.map(car => `
+                <div class="car-card">
+                    <div class="car-image">
+                        <svg width="100%" height="100%" viewBox="0 0 400 250">
+                            <rect width="400" height="250" fill="var(--navy)"/>
+                            <rect x="50" y="80" width="300" height="90" rx="5" fill="var(--navy-lighter)"/>
+                            <circle cx="120" cy="170" r="25" fill="var(--gold)" opacity="0.3"/>
+                            <circle cx="280" cy="170" r="25" fill="var(--gold)" opacity="0.3"/>
+                            <text x="200" y="135" text-anchor="middle" fill="var(--gold)" font-size="16" opacity="0.5">${car.make} ${car.model}</text>
+                        </svg>
+                    </div>
+                    <div class="car-details">
+                        <h3 class="car-title">${car.make} ${car.model}</h3>
+                        <div class="car-price">KES ${(car.price || 0).toLocaleString()}</div>
+                        <div class="car-specs">
+                            <div class="spec-item">📅 ${car.year || 2023}</div>
+                            <div class="spec-item">⚡ ${car.transmission || 'Automatic'}</div>
+                            <div class="spec-item">📊 ${(car.mileage || 0).toLocaleString()} km</div>
+                            <div class="spec-item">⛽ ${car.fuel || 'Petrol'}</div>
+                        </div>
+                        <button class="btn-view" onclick="viewCar(${car.id || 0})">View Details</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleChat() {
+            document.getElementById('chatWindow').classList.toggle('active');
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (!message) return;
+
+            const messagesDiv = document.getElementById('chatMessages');
+            
+            // Add user message
+            messagesDiv.innerHTML += `
+                <div style="text-align: right; margin: 1rem 0;">
+                    <div style="display: inline-block; background: var(--gold); color: var(--navy); padding: 0.75rem 1rem; border-radius: 8px; max-width: 70%;">
+                        ${message}
+                    </div>
+                </div>
+            `;
+
+            input.value = '';
+
+            // Show typing indicator
+            messagesDiv.innerHTML += `
+                <div id="typing" style="color: var(--gray); font-style: italic;">AI is thinking...</div>
+            `;
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+            // Call AI
+            try {
+                const response = await fetch('https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-3B-Instruct', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${HF_API_KEY}`
+                    },
+                    body: JSON.stringify({
+                        inputs: `You are a helpful car sales assistant for Motor Hut, a premium automotive dealership in Nairobi. Help customers with inquiries about cars, services, and bookings. Be professional and friendly.\n\nCustomer: ${message}\nAssistant:`,
+                        parameters: {
+                            max_new_tokens: 200,
+                            temperature: 0.7
+                        }
+                    })
+                });
+
+                const data = await response.json();
+                let aiResponse = 'I apologize, but I\'m having trouble connecting. Please call us at +254 72 383 8787.';
+                
+                if (data[0]?.generated_text) {
+                    aiResponse = data[0].generated_text;
+                }
+
+                document.getElementById('typing').remove();
+                
+                messagesDiv.innerHTML += `
+                    <div style="margin: 1rem 0;">
+                        <div style="display: inline-block; background: var(--navy-lighter); padding: 0.75rem 1rem; border-radius: 8px; max-width: 70%; border-left: 3px solid var(--gold);">
+                            ${aiResponse}
+                        </div>
+                    </div>
+                `;
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            } catch (error) {
+                console.error('AI Error:', error);
+                document.getElementById('typing').remove();
+                messagesDiv.innerHTML += `
+                    <div style="margin: 1rem 0;">
+                        <div style="display: inline-block; background: var(--navy-lighter); padding: 0.75rem 1rem; border-radius: 8px; max-width: 70%; border-left: 3px solid var(--gold);">
+                            I'm here to help! You can reach us at +254 72 383 8787 or motorhuttle@gmail.com
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function searchCars() {
+            alert('Search functionality will filter cars from Supabase database');
+        }
+
+        function viewCar(id) {
+            alert('This will open car details page - ID: ' + id);
+        }
+
+        // Enter key to send message
+        document.getElementById('chatInput')?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
+</body>
+</html>
