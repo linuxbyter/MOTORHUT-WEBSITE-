@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #0A1929;
-            --navy-light: #132F4C;
-            --gold: #D4AF37;
+            --navy: #0D0D0D;
+            --navy-light: #1A1A1A;
+            --gold: #C9A961;
             --off-white: #F5F5F5;
             --gray: #8899A8;
         }
@@ -30,14 +30,14 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 25, 41, 0.95);
+            background: rgba(13, 13, 13, 0.98);
             backdrop-filter: blur(10px);
             padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(201, 169, 97, 0.1);
         }
 
         .logo {
@@ -91,7 +91,7 @@
             background: var(--navy-light);
             padding: 3rem;
             border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(201, 169, 97, 0.2);
         }
 
         .info-item {
@@ -117,7 +117,7 @@
             background: var(--navy-light);
             padding: 2rem;
             border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(201, 169, 97, 0.2);
             margin-top: 2rem;
         }
 
@@ -134,7 +134,7 @@
         .hours-list li {
             color: var(--gray);
             padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(201, 169, 97, 0.1);
         }
 
         .hours-list li:last-child {
@@ -145,7 +145,7 @@
             background: var(--navy-light);
             padding: 3rem;
             border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(201, 169, 97, 0.2);
         }
 
         .contact-form h2 {
@@ -171,7 +171,7 @@
             width: 100%;
             padding: 1rem;
             background: var(--navy);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(201, 169, 97, 0.2);
             border-radius: 4px;
             color: var(--off-white);
             font-family: 'Montserrat', sans-serif;
@@ -206,7 +206,7 @@
 
         .btn-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 5px 20px rgba(201, 169, 97, 0.4);
         }
 
         .success-message {
@@ -256,7 +256,7 @@
 
                     <div class="info-item">
                         <h3>📧 Email</h3>
-                        <p>motorhutltd@gmail.com</p>
+                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="375a584358455f42435b435377505a565e5b1954585a">[email&#160;protected]</a></p>
                     </div>
 
                     <div class="info-item">
@@ -302,15 +302,8 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            document.getElementById('successMessage').style.display = 'block';
-            this.reset();
-            setTimeout(() => {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 5000);
-        });
-    </script>
-</body>
-</html>
+            document.getElementById('successMessag
+                                
