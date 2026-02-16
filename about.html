@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Motor Hut</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A1929;
+            --navy-light: #132F4C;
+            --gold: #D4AF37;
+            --off-white: #F5F5F5;
+            --gray: #8899A8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--navy);
+            color: var(--off-white);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 25, 41, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold) 0%, #E8D4A0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--off-white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro p {
+            color: var(--gray);
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .feature-item {
+            background: var(--navy-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+
+        .feature-item::before {
+            content: '✓';
+            display: block;
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .service-card {
+            background: var(--navy-light);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .service-card h3 {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            text-align: center;
+            margin: 4rem 0 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .page-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">MOTOR HUT</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#inventory">Inventory</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">About Us</h1>
+        
+        <div class="intro">
+            <h2>Experience the Freedom of the Open Road</h2>
+            <p>
+                Experience the thrill of the open road with Motor Hut. Explore our diverse lineup of innovative vehicles, meticulously crafted for every adventure, big or small. Whether you crave the power and versatility of our SUVs, the sleek sophistication of our sedans, or the rugged dependability of our trucks, Motor Hut has the perfect driving companion to match your lifestyle.
+            </p>
+        </div>
+
+        <h3 style="text-align: center; color: var(--gold); font-size: 1.8rem; margin: 3rem 0 2rem;">We offer:</h3>
+        
+        <div class="features">
+            <div class="feature-item">Wide Selection of Vehicles</div>
+            <div class="feature-item">Certified Pre-Owned Vehicles</div>
+            <div class="feature-item">Flexible Financing Options</div>
+            <div class="feature-item">Professional Car Care Services</div>
+            <div class="feature-item">Friendly Customer Service</div>
+        </div>
+
+        <h2 class="section-title">Our Services</h2>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Wide Selection of Vehicles</h3>
+                <p style="color: var(--gray); line-height: 1.7;">Explore our diverse inventory of new and pre-owned vehicles, including sedans, SUVs, trucks, and more. Find the perfect vehicle to suit your needs and budget.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Certified Pre-Owned Vehicles</h3>
+                <p style="color: var(--gray); line-height: 1.7;">Shop our selection of certified pre-owned vehicles, each rigorously inspected and backed by a comprehensive warranty for added peace of mind.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Flexible Financing Options</h3>
+                <p style="color: var(--gray); line-height: 1.7;">Our experienced finance team is here to help you find the best financing options for your budget. Get pre-approved for financing and drive home your dream car today.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: var(--navy-light); border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.2);">
+            <p style="color: var(--gray); font-size: 1.15rem; line-height: 1.8;">
+                We're a team of passionate automotive enthusiasts dedicated to providing you with an exceptional car buying experience.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
